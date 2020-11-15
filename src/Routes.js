@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom';
 import Home from './containers/Home';
 import Login from './containers/Login';
+import Settings from "./containers/Settings";
 import Signup from './containers/Signup';
 import NewNote from './containers/NewNote';
 import Notes from './containers/Notes';
@@ -15,6 +16,9 @@ export default function Routes() {
             </Route>
             <Route exact path='/login'>
                 <Login />
+            </Route>
+            <Route exact path="/settings">
+                <Settings />
             </Route>
             <Route exact path="/signup">
                 <Signup />
