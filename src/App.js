@@ -4,12 +4,15 @@ import Navbar from 'react-bootstrap/Navbar';
 import { LinkContainer } from "react-router-bootstrap";
 import { AppContext } from "./libs/contextLib";
 import { Auth } from "aws-amplify";
+import { useHistory } from "react-router-dom";
+import { onError } from "./libs/errorLib";
 import Routes from './Routes';
 import './App.css';
 
 function App() {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [isAuthenticated, userHasAuthenticated] = useState(false);
+  const history = useHistory();
   
   useEffect(() => {
     onLoad();
@@ -21,7 +24,7 @@ function App() {
       userHasAuthenticated(true);
     } catch (e) {
       if (e !== 'No current user') {
-        alert (e);
+        onError(e);
       }
     }
 
@@ -29,8 +32,12 @@ function App() {
   }
 
 
-  function handleLogout() {
+  async function handleLogout() {
+    await Auth.signOut();
+
     userHasAuthenticated(false);
+
+    history.push("/login");
   }
 
   return (
