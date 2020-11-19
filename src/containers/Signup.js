@@ -110,7 +110,7 @@ export default function Signup() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                         autoFocus
-                        type="email"
+                        type="password"
                         value={fields.password}
                         onChange={handleFieldChange}
                     />
@@ -119,7 +119,7 @@ export default function Signup() {
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control
                         autoFocus
-                        type="email"
+                        type="password"
                         value={fields.confirmPassword}
                         onChange={handleFieldChange}
                     />
