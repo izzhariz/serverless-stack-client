@@ -6,6 +6,8 @@ import config from "../config";
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import BillingForm from "../components/BillingForm";
 import "./Settings.css"
+import { LinkContainer } from 'react-router-bootstrap';
+import LoaderButton from "../components/LoaderButton";
 
 export default function Settings() {
     const history = useHistory();
@@ -45,6 +47,23 @@ export default function Settings() {
 
     return (
         <div className="Settings">
+            <LinkContainer to="/settings/email">
+                <LoaderButton
+                    block
+                    size="lg"
+                >
+                    Change Email
+                </LoaderButton>
+            </LinkContainer>
+            <LinkContainer to="/settings/password">
+                <LoaderButton
+                    block
+                    size="lg"
+                >
+                    Change Password
+                </LoaderButton>
+            </LinkContainer>
+            <hr />
             <StripeProvider stripe={stripe}>
                 <Elements
                     fonts={[
@@ -54,7 +73,10 @@ export default function Settings() {
                         },
                     ]}
                 >
-                    <BillingForm isLoading={isLoading} onSubmit={handleFormSubmit} />
+                    <BillingForm 
+                        isLoading={isLoading} 
+                        onSubmit={handleFormSubmit} 
+                    />
                 </Elements>
             </StripeProvider>
         </div>
