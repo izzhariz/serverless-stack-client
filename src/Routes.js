@@ -6,6 +6,7 @@ import Settings from "./containers/Settings";
 import Signup from './containers/Signup';
 import NewNote from './containers/NewNote';
 import Notes from './containers/Notes';
+import ResetPassword from "./containers/ResetPassword";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
 import NotFound from "./containers/NotFound";
@@ -31,6 +32,9 @@ export default function Routes() {
             <AuthenticatedRoute exact path="/notes/:id">
                 <Notes />
             </AuthenticatedRoute>
+            <UnauthenticatedRoute exact path="/login/reset">
+                <ResetPassword />
+             </UnauthenticatedRoute>
             <Route>
                 <NotFound />
             </Route>
