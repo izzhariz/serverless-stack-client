@@ -5,9 +5,9 @@ import { onError } from "../libs/errorLib";
 import config from "../config";
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import BillingForm from "../components/BillingForm";
-import "./Settings.css"
 import { LinkContainer } from 'react-router-bootstrap';
 import LoaderButton from "../components/LoaderButton";
+import "./Settings.css"
 
 export default function Settings() {
     const history = useHistory();
@@ -79,6 +79,11 @@ export default function Settings() {
                     />
                 </Elements>
             </StripeProvider>
+            <div className="warning">
+                *Please use the following test credit card for payments*
+                <br />
+                4242 4242 4242 4242 - Exp: 01/21 - CVV: 123
+            </div>
         </div>
     );
 }
